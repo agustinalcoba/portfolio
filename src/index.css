@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+    /* border: 1px solid black; */
+    scrollbar-width: thin; 
+  }
+  
