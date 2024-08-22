@@ -1,45 +1,79 @@
 import React from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { Agus } from "../assets/Agus";
 // import { AgusNoExport } from "../assets/AgusNoExport";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Sphere } from "@react-three/drei";
 import gsap from "gsap";
 
+const Particles = () => {
+  let result = [];
+  for (let i = 0; i < 100; i++) {
+    const position = [
+      (Math.random() - 0.5) * 10,
+      (Math.random() - 0.5) * 10,
+      (Math.random() - 0.5) * 10,
+    ];
+    const _scale = Math.random() * 0.1;
+    const scale = [_scale, _scale, _scale];
+    // console.log(position);
+    result.push(
+      <Sphere scale={scale} position={position} key={i}>
+        {/* <meshBasicMaterial color={"#4851BF"} /> */}
+      </Sphere>
+    );
+  }
+  return result;
+};
 export const Intro = () => {
+  // const particles = React.useRef();
   const name = React.useRef(null);
   const desc = React.useRef(null);
   const section = React.useRef(null);
+  // useFrame((state) => {
+  //   // console.log(state);
+  //   // group.current.rotation.y += 0.001;
+  //   particles.current.rotation.y -= 0.002;
+  //   particles.current.rotation.x -= 0.001;
+  //   particles.current.rotation.z -= 0.001;
+  //   // const { x, y } = state.pointer;
+  //   // console.log(x);
+  // });
   React.useEffect(() => {
     gsap.fromTo(section.current, { opacity: 0 }, { duration: 3, opacity: 1 });
   }, []);
   return (
-    <section className="h-screen select-none" ref={section}>
-      <div className="w-full h-96  ">
+    <section className="h-screen select-none relative" ref={section}>
+      <div className="absolute h-full w-full top-0 left-0">
         <Canvas camera={{ position: [0, 0, 5], fov: 20 }}>
           <ambientLight intensity={0.5} />
-          {/* <pointLight position={[10, 10, 10]} /> */}
-          <Agus position={[0, -1, 0]} rotation={[0, 45, 0]} />
-          {/* <Particles /> */}
-          {/* <Sphere scale={[0.1, 0.1, 0.1]} /> */}
-          {/* <AgusNoExport position={[0, -1, 0]} rotation={[0, 45, 0]} /> */}
-          <OrbitControls enableZoom={false} />
-          {/* <sphereGeometry radius={1} /> */}
+
+          <Particles />
         </Canvas>
       </div>
-      <div className="px-16" ref={desc}>
+      <div className="w-full h-2/3 ">
+        <Canvas camera={{ position: [0, 0, 5], fov: 20 }}>
+          <ambientLight intensity={0.5} />
+          <Agus position={[0, -1, 0]} rotation={[0, 45, 0]} />
+          <OrbitControls enableZoom={false} />
+        </Canvas>
+      </div>
+      <header
+        className="absolute bottom-0 left-0 right-0   h-1/3"
+        ref={desc}
+      >
         <h1
-          className="text-3xl sm:text-5xl text-center sm:text-start mx-auto w-fit font-Bebas font-bold italic tracking-wide sm:mt-16"
+          className="text-3xl text-center mx-auto w-fit font-Bebas font-bold italic tracking-wide sm:text-5xl sm:text-start sm:mt-16"
           ref={name}
         >
           Agustin Alcoba
         </h1>
-        <p className="text-lg sm:text-2xl lg:text-3xl sm:ms-56 pt-16">
-          Software Developer &amp; 3D Artist.{" "}
+        <p className="text-lg pt-16 sm:text-2xl sm:ms-56 lg:text-3xl ">
+          Software Developer &amp; 3D Artist.
         </p>
-        <p className="text-md sm:text-lg lg:text-2xl sm:ms-56 pb-16 opacity-60 ">
+        <p className="text-md pb-16 opacity-60 sm:text-lg sm:ms-56 lg:text-2xl">
           Based in Uruguay.
         </p>
-      </div>
+      </header>
     </section>
   );
 };

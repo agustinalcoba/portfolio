@@ -21,48 +21,6 @@ const SectionTitle = ({ children }) => {
   );
 };
 
-const Particles = ({ children }) => {
-  let result = [];
-  const AMOUNT_OF_PARTICLES = 50;
-  for (let i = 0; i < AMOUNT_OF_PARTICLES; i++) {
-    const position = [
-      (Math.random() - 0.5) * 5,
-      (Math.random() - 0.5) * 5,
-      (Math.random() - 0.5) * 5,
-    ];
-    const _rotation = Math.random() * 180;
-    const rotation = [_rotation, _rotation, _rotation];
-    const _scales = Math.random();
-    const scale = [_scales, _scales, _scales];
-    result.push(
-      <group scale={scale} position={position} rotation={rotation} key={i}>
-        {children}
-      </group>
-    );
-  }
-  return result;
-};
-const ThisModel = ({ children }) => {
-  useEffect(() => {
-    rotateAboutPoint(
-      group.current,
-      new THREE.Vector3(0, 0, 0),
-      new THREE.Vector3(1, 0, 0),
-      -0.5
-    );
-  }, []);
-  const group = React.useRef();
-  useFrame(() => {
-    rotateAboutPoint(
-      group.current,
-      new THREE.Vector3(0, 0, 0),
-      new THREE.Vector3(0, 1, 0),
-      0.001
-    );
-  });
-
-  return <group ref={group}>{children}</group>;
-};
 const Highlight = ({ children }) => {
   return (
     <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-purple-700 to-red-900 drop-shadow-white">
@@ -273,6 +231,33 @@ export const Models = () => {
         </div>
       </section>
 
+      <section className=" relative  h-screen  " id="section">
+        <div className="bg-[#9fa4e1] h-[60vh] w-full my-auto absolute left-0 bottom-0 top-0">
+          <SectionTitle>Marta</SectionTitle>
+          <InfoAside>
+            <h2 className="text-xl font-Bebas font-bold tracking-wide">
+              Marta
+            </h2>
+            <p className="  my-2">
+              Meticulously crafted 3D model, combining traditional charm with a
+              touch of modern design. This detailed figure captures the essence
+              of a classic toy, with intricate features and a playful aesthetic
+              that evokes nostalgia while appealing to contemporary tastes.
+            </p>
+            <p className="">
+              Perfect as a digital collectible or centerpiece in a virtual
+              scene.
+            </p>
+          </InfoAside>
+        </div>
+        <div className="absolute top-0 left-0 h-full w-full">
+          <img
+            className=" h-full mx-auto"
+            src="./models/img/marta.png"
+            alt=""
+          />
+        </div>
+      </section>
       <section className=" relative  h-screen  " id="section">
         <div className="bg-[#9fa4e1] h-[60vh] w-full my-auto absolute left-0 bottom-0 top-0">
           <SectionTitle>Marta</SectionTitle>

@@ -57,7 +57,7 @@ export function Agus(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group ref={particles}>
-        <Particles />
+        {/* <Particles /> */}
       </group>
       <group name="Scene">
         <group name="rig">

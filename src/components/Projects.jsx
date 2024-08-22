@@ -8,6 +8,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { rotateAboutPoint } from "../lib/RotateAboutPoint";
 import { Link } from "react-router-dom";
 import * as THREE from "three";
+import { UnderConstruction } from "./UnderConstruction";
 gsap.registerPlugin(ScrollTrigger);
 
 const Card = ({ src, title, description, theme }) => {
@@ -63,8 +64,6 @@ export const Projects = () => {
   const cards = useRef(null);
 
   useEffect(() => {
-
-
     gsap.fromTo(
       cards.current.children,
       {
@@ -146,7 +145,8 @@ export const Projects = () => {
           </div>
         </div>
       </section>
-      <section className="h-screen p-8 sm:p-16 bg-white text-black">
+      <section className="relative h-screen p-8 sm:p-16 bg-white text-black">
+        <UnderConstruction />
         <h2 className="text-3xl lg:text-5xl  font-bold">Web Projects</h2>
 
         <div className="flex flex-wrap justify-center  lg:grid lg:grid-cols-2 w-full lg:w-fit lg:ms-auto overflow-y-auto  gap-2 text-lg py-16">

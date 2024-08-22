@@ -27,6 +27,9 @@ export default {
       fontSize: {
         "6xl": "5rem",
       },
+      dropShadow: {
+        "white": "0 5px 5px rgba(100, 100, 100, 1)",
+      },
     },
   },
   plugins: [],
