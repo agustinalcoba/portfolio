@@ -235,15 +235,7 @@ export const Models = () => {
             <h2 className="text-xl font-Bebas font-bold tracking-wide">
               Marta
             </h2>
-            <p className="  my-2">
-              Meticulously crafted 3D model, combining traditional charm with a
-              touch of modern design. This detailed figure captures the essence
-              of a classic toy, with intricate features and a playful aesthetic
-              that evokes nostalgia while appealing to contemporary tastes.
-            </p>
-            <p className="">
-              Perfect as a digital collectible or centerpiece in a virtual
-              scene.
+            <p className="  my-2">-
             </p>
           </InfoAside>
         </div>
@@ -263,11 +255,10 @@ export const Models = () => {
               Akihiko: The Artisanal Toy
             </h2>
             <p className="  my-2">
-              The Artisanal Toy is a meticulously crafted 3D model, combining
-              traditional charm with a touch of modern design. This detailed
-              figure captures the essence of a classic toy, with intricate
-              features and a playful aesthetic that evokes nostalgia while
-              appealing to contemporary tastes.
+              Meticulously crafted 3D model, combining traditional charm with a
+              touch of modern design. This detailed figure captures the essence
+              of a classic toy, with intricate features and a playful aesthetic
+              that evokes nostalgia while appealing to contemporary tastes.
             </p>
             <p className="">
               Perfect as a digital collectible or centerpiece in a virtual
