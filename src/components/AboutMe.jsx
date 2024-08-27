@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger"; 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Sphere } from "@react-three/drei";
 
@@ -57,33 +57,38 @@ export const AboutMe = () => {
   const text = useRef(null);
 
   return (
-    <section className="h-[75vh] p-16  bg-white text-black relative">
-      <Background />
-      <h2
-        className="text-3xl w-fit text-center font-bold sm:text-5xl sm:text-start z-10"
-        ref={title}
-      >
-        About Me
-      </h2>
-      <div
-        className="text-lg py-16 drop-shadow-md sm:text-2xl sm:ms-56 lg:text-3xl "
-        ref={text}
-      >
-        <AboutMeP>
-          I'm a <Highlight>software developer</Highlight> who has always lived
-          in Uruguay.
-        </AboutMeP>
-        <AboutMeP>
-          Some of my hobbies include{" "}
-          <Highlight>programming, gaming, and 3D art</Highlight>.
-        </AboutMeP>
-        <AboutMeP>
-          I enjoy working on projects that{" "}
-          <Highlight>make a difference</Highlight> in people's lives.
-        </AboutMeP>
-        <AboutMeP>
-          Feel free to reach out if you'd like to collaborate on a project.
-        </AboutMeP>
+    <section
+      className="h-screen  text-black relative"
+      id="aboutme"
+    >
+      <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-white  w-full h-[75vh]  overflow-hidden p-16 rounded-lg">
+        <Background />
+        <h2
+          className="text-3xl w-fit text-center font-bold sm:text-5xl sm:text-start z-10"
+          ref={title}
+        >
+          About Me
+        </h2>
+        <div
+          className="text-lg py-16 drop-shadow-md sm:text-2xl sm:ms-56 lg:text-3xl "
+          ref={text}
+        >
+          <AboutMeP>
+            I'm a <Highlight>software developer</Highlight> who has always lived
+            in Uruguay.
+          </AboutMeP>
+          <AboutMeP>
+            Some of my hobbies include{" "}
+            <Highlight>programming, gaming, and 3D art</Highlight>.
+          </AboutMeP>
+          <AboutMeP>
+            I enjoy working on projects that{" "}
+            <Highlight>make a difference</Highlight> in people's lives.
+          </AboutMeP>
+          <AboutMeP>
+            Feel free to reach out if you'd like to collaborate on a project.
+          </AboutMeP>
+        </div>
       </div>
     </section>
   );

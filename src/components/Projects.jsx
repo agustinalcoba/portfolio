@@ -91,6 +91,7 @@ export const Projects = () => {
       <section
         className=" flex flex-col lg:flex lg:flex-col relative min-h-screen p-8 sm:p-16"
         ref={section}
+        id="3dart"
       >
         <h2 className="text-3xl sm:text-5xl text-center sm:text-start font-bold">
           3D Projects
