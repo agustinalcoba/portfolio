@@ -24,7 +24,12 @@ import { Desk } from "../assets/Desk";
 import { Pizza } from "../assets/Pizza";
 import { Stapler } from "../assets/Stapler";
 gsap.registerPlugin(ScrollTrigger);
-
+const SlideVertical = (id, value) => {
+  var slider = document.getElementById(String(id));
+  if (slider) {
+    slider.scrollTop = slider.scrollTop + value;
+  }
+};
 const Highlight = ({ children }) => {
   return (
     <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-purple-700 to-red-900 drop-shadow-white">
