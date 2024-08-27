@@ -193,6 +193,9 @@ export const ModelsAssets = () => {
         >
           <ambientLight intensity={5} />
           <spotLight position={[1, 1, 1]} intensity={10} />
+          <spotLight position={[-1, 1, -1]} intensity={10} />
+          {/* <rectAreaLight intensity={1} position={[1, 0, 1]} />
+          <rectAreaLight intensity={1} position={[-1, 0, 1]} /> */}
           {models[showcaseIndex].asset}
           <OrbitControls
             enableZoom={false}
