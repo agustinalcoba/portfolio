@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Footer } from "./Footer";
 import { ModelsAssets } from "./ModelsAssets";
+import { StreetNBuildings } from "../assets/Street_n_buildings";
+import { Amber } from "../assets/Amber";
 // import {modelsList} from "../lib/ModelsList";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,12 +133,6 @@ const InfoAside = ({ children }) => {
 
 export const Models = () => {
   
-  const SlideVertical = (id, value) => {
-    var slider = document.getElementById(String(id));
-    if (slider) {
-      slider.scrollTop = slider.scrollTop + value;
-    }
-  };
   useEffect(() => {
     let titles = gsap.utils.toArray("#section"),
       offset = titles[1].offsetTop - titles[0].offsetTop;
@@ -214,13 +210,14 @@ export const Models = () => {
       >
         Down
       </button>
-      <section className=" relative h-screen " id="section">
+      <header className=" relative h-screen " id="section">
         <div className="w-full h-screen absolute left-0 top-0 ">
           <Canvas camera={{ position: [0, 1, 3], fov: 50 }}>
             <ambientLight intensity={5} />
             <spotLight position={[0, 2, -1]} intensity={20} distance={10} />
-            <MonitorPresentation />
-            <OrbitControls enableZoom={false} />
+            {/* <MonitorPresentation  /> */}
+            <StreetNBuildings position={[0, -1, 0]} scale={[0.5, 0.5, 0.5]} />
+            {/* <OrbitControls enableZoom={false} /> */}
           </Canvas>
         </div>
         <div className="w-screen sm:w-fit  bottom-0 left-0 absolute py-32 sm:py-16 rounded-r-lg border-t sm:border-r sm:border-b bg-white">
@@ -229,7 +226,7 @@ export const Models = () => {
           </h1>
           <p className="text-lg font-bold ms-16">&mdash; Agustin Alcoba</p>
         </div>
-      </section>
+      </header>
 
       <section className=" relative  h-screen  " id="section">
         <div className="bg-[#9fa4e1] h-[60vh] w-full my-auto absolute left-0 bottom-0 top-0">
@@ -260,16 +257,17 @@ export const Models = () => {
       </section>
       <section className=" relative  h-screen  " id="section">
         <div className="bg-[#9fa4e1] h-[60vh] w-full my-auto absolute left-0 bottom-0 top-0">
-          <SectionTitle>Marta</SectionTitle>
+          <SectionTitle>Akihiko: The Artisanal Toy</SectionTitle>
           <InfoAside>
             <h2 className="text-xl font-Bebas font-bold tracking-wide">
-              Marta
+              Akihiko: The Artisanal Toy
             </h2>
             <p className="  my-2">
-              Meticulously crafted 3D model, combining traditional charm with a
-              touch of modern design. This detailed figure captures the essence
-              of a classic toy, with intricate features and a playful aesthetic
-              that evokes nostalgia while appealing to contemporary tastes.
+              The Artisanal Toy is a meticulously crafted 3D model, combining
+              traditional charm with a touch of modern design. This detailed
+              figure captures the essence of a classic toy, with intricate
+              features and a playful aesthetic that evokes nostalgia while
+              appealing to contemporary tastes.
             </p>
             <p className="">
               Perfect as a digital collectible or centerpiece in a virtual
@@ -278,11 +276,12 @@ export const Models = () => {
           </InfoAside>
         </div>
         <div className="absolute top-0 left-0 h-full w-full">
-          <img
-            className=" h-full mx-auto"
-            src="./models/img/marta.png"
-            alt=""
-          />
+          <Canvas camera={{ position: [0, 0, 3], fov: 35 }}>
+            <ambientLight intensity={0.5} />
+            <spotLight position={[0, 0, 2]} intensity={2} distance={10} />
+            <Amber scale={[1, 1, 1]} position={[0, -0.8, 0]} />
+            <OrbitControls enableZoom={false} />
+          </Canvas>
         </div>
       </section>
 
