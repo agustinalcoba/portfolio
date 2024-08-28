@@ -122,6 +122,7 @@ export const Projects = () => {
             {translationCards.map((card, i) => {
               return (
                 <Card
+                  key={i}
                   src={card.src}
                   title={card.title}
                   description={card.description}

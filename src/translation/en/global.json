@@ -1,5 +1,5 @@
 {
-  "aboutMe": { "title": "About me." },
+  "aboutMe": { "title": "About me." , "description": ""},
   "asideInfo": {
     "caption": "Web Developer and 3D Artist.",
     "ul": [

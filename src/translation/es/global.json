@@ -1,5 +1,5 @@
 {
-  "aboutMe": { "title": "Sobre mí" },
+  "aboutMe": { "title": "Sobre mí", "description": "" },
   "asideInfo": {
     "caption": "Desarrollador Web y Artista 3D",
     "ul": [
@@ -11,7 +11,7 @@
   },
   "3dprojects": {
     "title": "Projectos 3D",
-    "caption": "Mejore sus proyectos con estos sencillos modelos 3D, perfectos para juegos, visualizaciones y aplicaciones de diseño gráfico.",
+    "caption": "Mejora tus proyectos con estos sencillos modelos 3D, perfectos para juegos, visualizaciones y aplicaciones de diseño gráfico.",
     "cards": [
       {
         "src": "./models/img/burger.png",
