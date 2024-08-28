@@ -58,7 +58,8 @@ export const Intro = () => {
         </Canvas>
       </div>
       <header
-        className="absolute bottom-0 left-0 right-0   h-1/3"
+        className="absolute bottom-0 left-0 right-0 h-1/3 rounded-md bg-transparent
+        dark:bg-black"
         ref={desc}
       >
         <h1

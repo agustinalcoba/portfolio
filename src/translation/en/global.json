@@ -1,0 +1,12 @@
+{
+  "aboutMe": { "title": "About me." },
+  "asideInfo": {
+    "caption": "Web Developer and 3D Artist.",
+    "ul": [
+      { "href": "#aboutme", "text": "About me" },
+      { "href": "#3dart", "text": "3D art" },
+      { "href": "#coding", "text": "Coding skills" },
+      { "href": "#contactme", "text": "Contact me" }
+    ]
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -40,34 +41,25 @@ const Particles = () => {
   }
   return result;
 };
-const Background = () => {
-  return (
-    <div className="absolute border w-full h-full top-0 left-0 z-0">
-      <Canvas camera={{ position: [0, 0, 5], fov: 20 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} />
-        <Particles />
-      </Canvas>
-    </div>
-  );
-};
 export const AboutMe = () => {
   // const element = useRef(null);
   const title = useRef(null);
   const text = useRef(null);
 
+  const [t, i18n] = useTranslation("global");
+
   return (
-    <section
-      className="h-screen  text-black relative"
-      id="aboutme"
-    >
-      <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-white  w-full h-[75vh]  overflow-hidden p-16 rounded-lg">
-        <Background />
+    <section className="h-screen text-black relative  " id="aboutme">
+      <div
+        className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]  w-full bg-green-300
+      dark:bg-gradient-to-r from-indigo-400 from-10% via-sky-400 via-30% to-emerald-400 to-90% overflow-hidden p-16 rounded-lg"
+      >
+        {/* <Background /> */}
         <h2
           className="text-3xl w-fit text-center font-bold sm:text-5xl sm:text-start z-10"
           ref={title}
         >
-          About Me
+          {t("aboutMe.title")}
         </h2>
         <div
           className="text-lg py-16 drop-shadow-md sm:text-2xl sm:ms-56 lg:text-3xl "

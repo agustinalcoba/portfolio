@@ -6,6 +6,7 @@ import { Projects } from "./Projects";
 import { CodingSkills } from "./CodingSkills";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AsideInfo } from "./AsideInfo";
 gsap.registerPlugin(ScrollTrigger);
 
 export const Layout = () => {
@@ -21,7 +22,7 @@ export const Layout = () => {
       {
         opacity: 1,
         ease: "none",
-        duration: 2,
+        duration: 1,
         scrollTrigger: {
           trigger: content.current,
           start: "top center",
@@ -38,9 +39,9 @@ export const Layout = () => {
         ease: "none",
         scrollTrigger: {
           trigger: element,
-          start: "top center" ,
-          end: "bottom center" ,
-          markers: true,
+          start: "top center",
+          end: "bottom center",
+          // markers: true,
           onEnter: () => {
             gsap.to(element, {
               duration: 1,
@@ -73,47 +74,15 @@ export const Layout = () => {
     });
   }, []);
   return (
-    <main className="bg-black text-white ">
+    <main className="bg-white dark:bg-black  dark:text-white  ">
       <div ref={intro}>
         <Intro />
       </div>
       <div className="flex relative">
-        <aside
-          className="sticky left-0 top-0  w-1/4 h-screen p-8 flex flex-col justify-center"
-          ref={aside}
-        >
-          <img
-            className=" mx-auto   "
-            src="https://via.placeholder.com/300"
-            alt="Profile Pic"
-          />
-          <h1 className="text-5xl font-bold uppercase">Agustin Alcoba</h1>
-          <h2 className="text-xl font-medium">Web Developer and 3D Artist.</h2>
-          <ul className=" pl-6">
-            <li>
-              <a href="#aboutme" className="hover:text-green-500">
-                About me
-              </a>
-            </li>
-            <li>
-              <a href="#3dart" className="hover:text-green-500">
-                3D art
-              </a>
-            </li>
-            <li>
-              <a href="#coding" className="hover:text-green-500">
-                Coding
-              </a>
-            </li>
-            <li>
-              <a href="#contactme" className="hover:text-green-500">
-                Contact me
-              </a>
-            </li>
-          </ul>
-          <p className="text-sm"></p>
-        </aside>
-        <div className=" w-3/4 px-8" ref={content}>
+        <div className="w-1/4" ref={aside}>
+          <AsideInfo />
+        </div> 
+        <div className=" w-3/4 px-16" ref={content}>
           <AboutMe />
           <Projects />
           <CodingSkills />

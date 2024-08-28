@@ -278,7 +278,7 @@ export const Models = () => {
 
       <ModelsAssets />
 
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 };
