@@ -78,7 +78,7 @@ export const AboutMe = () => {
           <>
             <AboutMeP>
               I'm a <Highlight>software developer</Highlight> who has always
-              lived in Uruguay.
+              lived in <Highlight>Uruguay</Highlight>.
             </AboutMeP>
             <AboutMeP>
               Some of my hobbies include{" "}

@@ -23,9 +23,9 @@ const LiAside = ({ children, href }) => {
 };
 
 export const AsideInfo = () => {
-  const [theme, SetTheme] = useState("dark");
+  const [theme, SetTheme] = useState(localStorage.getItem("theme"));
   const [t, i18next] = useTranslation("global");
-  const ul = t("asideInfo.ul", { returnObjects: true }); // El flag `returnObjects: true` permite devolver arrays
+  const ul = t("asideInfo.ul", { returnObjects: true }); // El flag `returnObjects: true` permite devolver arrays 
 
   useEffect(() => {
     if (theme == "dark") {
@@ -34,13 +34,16 @@ export const AsideInfo = () => {
       document.body.classList.remove("dark");
     }
   }, [theme]);
+
+  const toggleTheme = () => {
+    SetTheme(theme == "dark" ? "light" : "dark"); 
+
+    localStorage.setItem("theme", theme == "dark" ? "light" : "dark"); 
+  };
+
   const handleChangeLanguage = (lang) => {
     i18next.changeLanguage(lang);
     localStorage.setItem("i18nextLng", lang);
-  };
-  const toggleTheme = () => {
-    SetTheme(theme == "dark" ? "light" : "dark");
-    localStorage.setItem("theme", theme);
   };
 
   return (
@@ -85,7 +88,7 @@ export const AsideInfo = () => {
         >
           <button
             className=" h-10 w-52 p-2 relative rounded-r-md bg-green-600 group-hover:bg-transparent  
-          dark:bg-transparent dark:border-purple-400 dark:border-2 dark:group-hover:border-none"
+            dark:bg-transparent dark:border-purple-400 dark:border-2 dark:group-hover:border-none"
           >
             <FontAwesomeIcon
               icon={faLanguage}
