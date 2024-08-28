@@ -9,6 +9,7 @@ import { rotateAboutPoint } from "../lib/RotateAboutPoint";
 import { Link } from "react-router-dom";
 import * as THREE from "three";
 import { UnderConstruction } from "./UnderConstruction";
+import { useTranslation } from "react-i18next";
 gsap.registerPlugin(ScrollTrigger);
 
 const Card = ({ src, title, description, theme }) => {
@@ -60,6 +61,9 @@ const RotatingModel = ({ children }) => {
   return <group ref={group}>{children}</group>;
 };
 export const Projects = () => {
+  const [t] = useTranslation("global");
+  const translationCards = t("3dprojects.cards", { returnObjects: true }); // El flag `returnObjects: true` permite devolver arrays
+
   const section = useRef(null);
   const cards = useRef(null);
 
@@ -94,11 +98,10 @@ export const Projects = () => {
         id="3dart"
       >
         <h2 className="text-3xl sm:text-5xl text-center sm:text-start font-bold">
-          3D Projects
+          {t("3dprojects.title")}
         </h2>
         <p className="opacity-75 sm:ms-8 pt-4 text-lg sm:text-2xl">
-          Enhance your projects with these simple 3D models, perfect for games,
-          visualizations, and graphic design applications.
+          {t("3dprojects.caption")}
         </p>
         <div className="flex flex-col lg:flex lg:flex-row lg:relative">
           <div className=" size-64 sm:size-96 w-full lg:w-6/12 lg:h-full m-auto lg:m-0 left-0 right-0 lg:absolute">
@@ -116,24 +119,16 @@ export const Projects = () => {
             className="flex flex-wrap justify-center lg:grid lg:grid-cols-2 w-full lg:w-fit lg:ms-auto overflow-y-auto  gap-2 text-lg py-16"
             ref={cards}
           >
-            <Card
-              src={"./models/img/burger.png"}
-              title="Burger"
-              description="Simple 3D model, perfect for games, visualizations, and graphic design applications."
-              theme="light"
-            />
-            <Card
-              src={"./models/img/monitor.png"}
-              title="Monitor"
-              description="Description of Project 1"
-              theme="light"
-            />
-            <Card
-              src={"./models/img/book.png"}
-              title="Book"
-              description="description"
-              theme="light"
-            />
+            {translationCards.map((card, i) => {
+              return (
+                <Card
+                  src={card.src}
+                  title={card.title}
+                  description={card.description}
+                  theme={card.theme}
+                />
+              );
+            })}
 
             <Link
               to="/Models"

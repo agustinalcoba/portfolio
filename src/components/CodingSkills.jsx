@@ -1,10 +1,12 @@
 import React from "react";
 import { SkillItem } from "./SkillItem";
+import { useTranslation } from "react-i18next";
 
 export const CodingSkills = () => {
+  const [t] = useTranslation("global");
   return (
     <section className="h-screen p-16" id="coding">
-      <h3 className="text-3xl lg:text-5xl  font-bold">Coding skills</h3>
+      <h3 className="text-3xl lg:text-5xl  font-bold">{t("coding.title")}</h3>
       <ul className="text-lg flex flex-wrap gap-2 sm:ms-56 py-16 ">
         <SkillItem>JavaScript (ES6+)</SkillItem>
         <SkillItem>PHP</SkillItem>

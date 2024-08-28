@@ -8,5 +8,34 @@
       { "href": "#coding", "text": "Coding skills" },
       { "href": "#contactme", "text": "Contact me" }
     ]
+  },
+  "3dprojects": {
+    "title": "3D Projects",
+    "caption": "Enhance your projects with these simple 3D models, perfect for games, visualizations, and graphic design applications.",
+    "cards": [
+      {
+        "src": "./models/img/burger.png",
+        "title": "Burger",
+        "description": "Simple 3D model, perfect for games, visualizations, and graphic design applications.",
+        "theme": "light"
+      },
+      {
+        "src": "./models/img/monitor.png",
+        "title": "Monitor",
+        "description": "Simple 3D model, perfect for games, visualizations, and graphic design applications.",
+        "theme": "light"
+      },
+      {
+        "src": "./models/img/book.png",
+        "title": "Book",
+        "description": "Simple 3D model, perfect for games, visualizations, and graphic design applications.",
+        "theme": "light"
+      }
+    ]
+  },
+  "coding": { "title": "Coding skills" },
+  "contactMe": {
+    "title": "Contact Me",
+    "caption": "Feel free to reach out to me at any time."
   }
 }
