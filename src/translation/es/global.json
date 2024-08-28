@@ -1,4 +1,41 @@
 {
-    "aboutme": { "title": "Sobre mí." }
+  "aboutMe": { "title": "Sobre mí" },
+  "asideInfo": {
+    "caption": "Desarrollador Web y Artista 3D",
+    "ul": [
+      { "href": "#aboutme", "text": "Sobre mí" },
+      { "href": "#3dart", "text": "3D art" },
+      { "href": "#coding", "text": "Código" },
+      { "href": "#contactme", "text": "Contacto" }
+    ]
+  },
+  "3dprojects": {
+    "title": "Projectos 3D",
+    "caption": "Mejore sus proyectos con estos sencillos modelos 3D, perfectos para juegos, visualizaciones y aplicaciones de diseño gráfico.",
+    "cards": [
+      {
+        "src": "./models/img/burger.png",
+        "title": "Hamburguesa",
+        "description": "Simple 3D model, perfect for games, visualizations, and graphic design applications.",
+        "theme": "light"
+      },
+      {
+        "src": "./models/img/monitor.png",
+        "title": "Monitor",
+        "description": "Simple 3D model, perfect for games, visualizations, and graphic design applications.",
+        "theme": "light"
+      },
+      {
+        "src": "./models/img/book.png",
+        "title": "Libro",
+        "description": "Simple 3D model, perfect for games, visualizations, and graphic design applications.",
+        "theme": "light"
+      }
+    ]
+  },
+  "coding": { "title": "Codigo" },
+  "contactMe": {
+    "title": "Contacto",
+    "caption": "No dudes en comunicarte conmigo en cualquier momento."
   }
-  
+}

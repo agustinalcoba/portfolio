@@ -24,8 +24,8 @@ const LiAside = ({ children, href }) => {
 
 export const AsideInfo = () => {
   const [theme, SetTheme] = useState("dark");
-  const [t] = useTranslation("global");
-  const ul = t('asideInfo.ul', { returnObjects: true }); // El flag `returnObjects: true` permite devolver arrays
+  const [t, i18next] = useTranslation("global");
+  const ul = t("asideInfo.ul", { returnObjects: true }); // El flag `returnObjects: true` permite devolver arrays
 
   useEffect(() => {
     if (theme == "dark") {
@@ -34,7 +34,10 @@ export const AsideInfo = () => {
       document.body.classList.remove("dark");
     }
   }, [theme]);
-
+  const handleChangeLanguage = (lang) => {
+    i18next.changeLanguage(lang);
+    localStorage.setItem("i18nextLng", lang);
+  };
   const toggleTheme = () => {
     SetTheme(theme == "dark" ? "light" : "dark");
     localStorage.setItem("theme", theme);
@@ -53,11 +56,13 @@ export const AsideInfo = () => {
       />
       <h1 className="text-5xl font-bold uppercase mt-8">Agustin Alcoba</h1>
       <h2 className="text-xl font-medium mt-4 opacity-50">
-        Web Developer and 3D Artist.
+        {t("asideInfo.caption")}
       </h2>
       <ul className=" pl-6 my-2 h-36 text-lg">
         {ul.map((li, i) => (
-          <LiAside href={li.href} key={i}>{li.text}</LiAside>
+          <LiAside href={li.href} key={i}>
+            {li.text}
+          </LiAside>
         ))}
       </ul>
       <p className="text-sm"></p>
@@ -74,8 +79,10 @@ export const AsideInfo = () => {
             dark:text-purple-400"
           />
         </button>
-        <div className="group relative rounded-3xl  hover:border-2 hover:border-green-600
-        dark:border-purple-400">
+        <div
+          className="group relative rounded-3xl  hover:border-2 hover:border-green-600
+        dark:border-purple-400"
+        >
           <button
             className=" h-10 w-52 p-2 relative rounded-r-md bg-green-600 group-hover:bg-transparent  
           dark:bg-transparent dark:border-purple-400 dark:border-2 dark:group-hover:border-none"
@@ -88,14 +95,20 @@ export const AsideInfo = () => {
           </button>
 
           <ul className="p-1 hidden group-hover:block *:flex *:items-center *:gap-2 *:py-2 *:px-4 *:rounded-full ">
-            <li className="hover:bg-gray-200 cursor-pointer">
+            <li
+              className="hover:bg-gray-200 cursor-pointer"
+              onClick={() => handleChangeLanguage("es")}
+            >
               <img
                 src="https://flagsapi.com/ES/flat/64.png"
                 className="size-5"
               />
-              Spanish
+              Español
             </li>
-            <li className="hover:bg-gray-200 cursor-pointer">
+            <li
+              className="hover:bg-gray-200 cursor-pointer"
+              onClick={() => handleChangeLanguage("en")}
+            >
               <img
                 src="https://flagsapi.com/US/flat/64.png"
                 className="size-5"
