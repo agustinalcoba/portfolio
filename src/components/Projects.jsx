@@ -68,27 +68,30 @@ export const Projects = () => {
   const cards = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      cards.current.children,
-      {
-        opacity: 0,
-        scale: 0,
-      },
-      {
-        duration: 1,
-        opacity: 1,
-        scale: 1,
-        ease: "none",
-        stagger: 0.5,
-        scrollTrigger: {
-          trigger: cards.current,
-          start: "top 90%",
-          end: "center 10%",
-          toggleActions: "restart reverse restart reverse",
-          // markers: true,
+    const children = Array.from(cards.current.children);
+    children.forEach((el) => {
+      gsap.fromTo(
+        el,
+        {
+          opacity: 0,
+          scale: 0,
         },
-      }
-    );
+        {
+          duration: .5,
+          opacity: 1,
+          scale: 1,
+          ease: "none",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            end: "center 10%",
+            toggleActions: "restart reverse restart reverse",
+            // markers: true,
+          },
+        }
+      );
+    });
   }, []);
   return (
     <>
@@ -142,7 +145,7 @@ export const Projects = () => {
           </div>
         </div>
       </section>
-      <section className="relative h-screen p-8 sm:p-16 bg-white text-black">
+      {/* <section className="relative h-screen p-8 sm:p-16 bg-white text-black">
         <UnderConstruction />
         <h2 className="text-3xl lg:text-5xl  font-bold">Web Projects</h2>
 
@@ -155,7 +158,7 @@ export const Projects = () => {
           />
           <Card title="Project 2" description="description" theme="dark" />
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

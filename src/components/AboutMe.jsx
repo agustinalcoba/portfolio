@@ -11,7 +11,10 @@ const AboutMeP = ({ children }) => {
 };
 const Highlight = ({ children }) => {
   return (
-    <span className=" bg-clip-text text-transparent font-bold bg-gradient-to-tr from-cerulean-blue-700 to-cerulean-blue-900 drop-shadow-white">
+    <span
+      className="  font-bold 
+    dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-tr from-cerulean-blue-700 to-cerulean-blue-900  "
+    >
       {children}
     </span>
   );
